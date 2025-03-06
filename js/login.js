@@ -13,7 +13,8 @@ document.getElementById('login-btn').addEventListener('click',
                 passCurrect= true;
                 
                 localStorage.setItem("userName",userData[i].name);
-                localStorage.setItem("userPhoneNum",userData[i].phone);
+                localStorage.setItem("userAccountNo",userData[i].accountNumber);
+                localStorage.setItem("userBalance",userData[i].balance);
                 break;
             }
         }

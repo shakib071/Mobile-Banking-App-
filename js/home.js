@@ -1,7 +1,8 @@
 
 let userName = localStorage.getItem("userName");
-let userPhoneNum = localStorage.getItem("userPhoneNum");
-console.log(userName,userPhoneNum);
+let userAccountNo = localStorage.getItem("userAccountNo");
+let userBalance = localStorage.getItem("userBalance");
+console.log(userName,userAccountNo,userBalance);
 
 changeInnerTextById('user-name',userName);
-changeInnerTextById('phone-number',userPhoneNum);
+changeInnerTextById('phone-number',userAccountNo);
