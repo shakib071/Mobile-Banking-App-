@@ -18,18 +18,23 @@ document.getElementById('balance').addEventListener('click',
         
         let balanceText= document.getElementById('balance-text');
         let tempBalanceText = balanceText.innerText;
-        console.log(tempBalanceText.innerText);
+
+        let takaSign = document.getElementById('taka-sign');
+        takaSign.style.display = "none";
         balanceText.innerHTML= '<div class="spinner"></div>';
         
         setTimeout(() => {
             balanceText.innerText = userBalance;
-         
+            takaSign.style.display = "block";
             
             setTimeout(() => {
                 balanceText.innerText = tempBalanceText;
+                
                
             }, 1000);
-        }, 1000);
+        }, 2000);
+
+        
         
     }
 );
