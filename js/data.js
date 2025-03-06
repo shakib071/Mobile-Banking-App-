@@ -7,21 +7,21 @@ let userData = [
         phone: "01780935181",
         pin: "12345",
         accountNumber: "017809351811",
-        balance: 15000
+        balance: 325000
     },
     {
         name: "Jobayer Prodhan",
         phone: "01711111111",
         pin: "12346",
         accountNumber: "017111111112",
-        balance: 15000
+        balance: 1500000
     },
     {
         name: "Swapna Khatun",
         phone: "01716668804",
         pin: "11223",
         accountNumber: "017166688043",
-        balance: 15000
+        balance: 1505400
     },
     {
         name: "Rahim Uddin",
