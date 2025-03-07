@@ -38,3 +38,14 @@ document.getElementById('balance').addEventListener('click',
         
     }
 );
+
+
+
+
+//services section script
+
+document.getElementById('send-money').addEventListener('click', 
+    function (){
+        window.location.href = 'html/services_section/send_money.html';
+    }
+);
