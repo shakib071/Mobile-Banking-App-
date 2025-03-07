@@ -1,127 +1,33 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Change with Spinner</title>
-    <style>
-        /* Styling the text container */
-        #text-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Spinner styles */
-        .spinner {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: blue;
-            border-right-color: blue;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
+    
+    <div id="qr-reader" style="width: 300px;"></div>
+    <div id="qr-result"></div>
 
-    <div id="text-container">Old Text</div>
-
-    <button onclick="changeText()">Change Text</button>
-
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
-        function changeText() {
-            let textContainer = document.getElementById("text-container");
+    function onScanSuccess(decodedText, decodedResult) {
+        document.getElementById('qr-result').innerText = "Scanned QR: " + decodedText;
+    }
 
-            // Show spinner instead of text
-            textContainer.innerHTML = '<div class="spinner"></div>';
+    function startQRScanner() {
+        let qrScanner = new Html5Qrcode("qr-reader");
+        qrScanner.start(
+            { facingMode: "environment" }, // Use the rear camera
+            { fps: 10, qrbox: 250 }, 
+            onScanSuccess
+        );
+    }
 
-            // Simulate loading time (e.g., fetching data)
-            setTimeout(() => {
-                // Change to new text
-                textContainer.innerText = "New Text!";
-            }, 2000); // 2 seconds delay
-        }
-    </script>
+    startQRScanner();
+</script>
+
 
 </body>
 </html>
- -->
-
-
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Text Change with Animation</title>
-     <script src="https://cdn.tailwindcss.com"></script>
-     <style>
-         /* Spinner animation */
-         .spinner {
-             display: inline-block;
-             width: 24px;
-             height: 24px;
-             border: 4px solid rgba(0, 0, 0, 0.1);
-             border-left-color: blue;
-             border-radius: 50%;
-             animation: spin 1s linear infinite;
-         }
- 
-         @keyframes spin {
-             0% { transform: rotate(0deg); }
-             100% { transform: rotate(360deg); }
-         }
-     </style>
- </head>
- <body class="flex flex-col items-center justify-center h-screen bg-gray-100">
-    <div class="flex items-center bg-gray-200 p-2 rounded-md w-80">
-        <!-- Left Logo -->
-        <img src="logo-left.png" alt="Left Logo" class="w-6 h-6 ml-2">
-    
-        <!-- Input Field -->
-        <input type="text" placeholder="Enter text" 
-            class="flex-1 bg-gray-200 outline-none px-2 text-black">
-    
-        <!-- Right Logo -->
-        <img src="logo-right.png" alt="Right Logo" class="w-6 h-6 mr-2">
-    </div>
-    
-     <!-- Text Box -->
-     <div id="text-container" class="text-2xl font-semibold text-gray-700">Old Text</div>
- 
-     <!-- Button -->
-     <button onclick="changeText()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg">Start Animation</button>
- 
-     <script>
-         function changeText() {
-             let textContainer = document.getElementById("text-container");
- 
-             // Step 1: Show spinner
-             textContainer.innerHTML = '<div class="spinner"></div>';
- 
-             // Step 2: Show "New Text!" after 2 seconds
-             setTimeout(() => {
-                 textContainer.innerText = "New Text!";
-                 
-                 // Step 3: Show "Old Text" again after another 2 seconds
-                 setTimeout(() => {
-                     textContainer.innerText = "Old Text";
-                 }, 2000); // 2 seconds
-             }, 2000); // 2 seconds
-         }
-     </script>
- 
- </body>
- </html>
- 
