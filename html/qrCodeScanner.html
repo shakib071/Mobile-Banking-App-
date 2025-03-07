@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code Scan</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+<body>
+    
+    <section class="w-full md:w-[50%] lg:w-[25%] mx-auto ">
+         <!-- qr code reader  -->
+         <div id="qr-reader" class="w-[300px] mx-auto"></div>
+         <div id="qr-result"></div>
+    </section>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    
+    <script src="../js/send_money.js"></script>
+    <script src="../js/qrCodeScan.js"></script>
+</body>
+</html>
