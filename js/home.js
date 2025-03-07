@@ -46,6 +46,9 @@ document.getElementById('balance').addEventListener('click',
 
 document.getElementById('send-money').addEventListener('click', 
     function (){
-        window.location.href = 'html/services_section/send_money.html';
+        window.location.href = 'html/send_money.html';
     }
 );
+
+
+
