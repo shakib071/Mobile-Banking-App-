@@ -3,31 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Animated Circle Fill</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fillAnimation {
+            0% {
+                background: conic-gradient(#4f46e5 0deg, transparent 0deg);
+            } 
+            10% {
+                background: conic-gradient(#4f46e5 36deg, transparent 0deg);
+            }
+            20% {
+                background: conic-gradient(#4f46e5 72deg, transparent 0deg);
+            } 
+            30% {
+                background: conic-gradient(#4f46e5 108deg, transparent 0deg);
+            } 20% {
+                background: conic-gradient(#4f46e5 72deg, transparent 0deg);
+            }
+            100% {
+                background: conic-gradient(#4f46e5 360deg, transparent 0deg);
+            }
+        }
+
+        .animate-fill {
+            animation: fillAnimation 3s linear forwards;
+        }
+    </style>
 </head>
-<body>
-    
-    <div id="qr-reader" style="width: 300px;"></div>
-    <div id="qr-result"></div>
+<body class="flex items-center justify-center h-screen bg-gray-100">
 
-    <script src="https://unpkg.com/html5-qrcode"></script>
-    <script>
-    function onScanSuccess(decodedText, decodedResult) {
-        document.getElementById('qr-result').innerText = "Scanned QR: " + decodedText;
-    }
-
-    function startQRScanner() {
-        let qrScanner = new Html5Qrcode("qr-reader");
-        qrScanner.start(
-            { facingMode: "environment" }, // Use the rear camera
-            { fps: 10, qrbox: 250 }, 
-            onScanSuccess
-        );
-    }
-
-    startQRScanner();
-</script>
-
+    <!-- Outer Circle -->
+    <div class="relative w-32 h-32 rounded-full border-4 border-gray-500 flex items-center justify-center overflow-hidden">
+        <!-- Animated Fill Layer -->
+        <div class="absolute inset-0 animate-fill"></div>
+        
+        <!-- Inner Circle -->
+        <div class="w-16 h-16 rounded-full border-4 border-blue-500 bg-white flex items-center justify-center relative z-10">
+            <!-- Icon Inside Inner Circle -->
+            <span class="text-blue-500 text-2xl">⭐</span>
+        </div>
+    </div>
 
 </body>
 </html>

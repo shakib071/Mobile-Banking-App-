@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press & Hold Animation with Console Log</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Initial state - no animation */
+        .animate-fill {
+            position: absolute;
+            inset: 0;
+            background: conic-gradient(transparent 0deg, transparent 0deg);
+            transition: background 2s linear;
+        }
+
+        /* Active state - trigger animation */
+        .fill-active {
+            background: conic-gradient(#4f46e5 360deg, transparent 0deg);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+
+    <!-- Outer Circle -->
+    <div class="relative w-32 h-32 rounded-full border-4 border-gray-500 flex items-center justify-center overflow-hidden"
+        id="outerCircle">
+
+        <!-- Animated Fill Layer -->
+        <div class="animate-fill" id="fillLayer"></div>
+
+        <!-- Inner Circle -->
+        <div class="w-16 h-16 rounded-full border-4 border-blue-500 bg-white flex items-center justify-center relative z-10">
+            <!-- Icon Inside Inner Circle -->
+            <span class="text-blue-500 text-2xl">⭐</span>
+        </div>
+    </div>
+
+    <script>
+        const outerCircle = document.getElementById("outerCircle");
+        const fillLayer = document.getElementById("fillLayer");
+        let holdTimeout;
+
+        // Start the animation after a certain hold time (e.g., 500ms)
+        outerCircle.addEventListener("mousedown", () => {
+            holdTimeout = setTimeout(() => {
+                fillLayer.classList.add("fill-active");
+            }, 500);  // Delay before animation starts (500ms)
+        });
+
+        // Reset if the mouse is released early
+        outerCircle.addEventListener("mouseup", () => {
+            clearTimeout(holdTimeout);  // Cancel the timeout if released early
+            fillLayer.classList.remove("fill-active");  // Reset animation
+        });
+
+        // Reset if mouse leaves the element
+        outerCircle.addEventListener("mouseleave", () => {
+            clearTimeout(holdTimeout);  // Cancel the timeout if mouse leaves
+            fillLayer.classList.remove("fill-active");  // Reset animation
+        });
+
+        // Listen for the transition end event
+        fillLayer.addEventListener('transitionend', () => {
+            console.log('Hello World');  // Log to the console after transition ends
+        });
+    </script>
+
+</body>
+</html>
