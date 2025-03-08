@@ -10,7 +10,49 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-   
+    
+    <style>
+        @keyframes fillAnimation {
+            0% {
+                background: conic-gradient(#4f46e5 0deg, transparent 0deg);
+            } 
+            10% {
+                background: conic-gradient(#4f46e5 36deg, transparent 0deg);
+            }
+            20% {
+                background: conic-gradient(#4f46e5 72deg, transparent 0deg);
+            } 
+            30% {
+                background: conic-gradient(#4f46e5 108deg, transparent 0deg);
+            } 
+            40% {
+                background: conic-gradient(#4f46e5 144deg, transparent 0deg);
+            }
+            50% {
+                background: conic-gradient(#4f46e5 180deg, transparent 0deg);
+            }
+            60% {
+                background: conic-gradient(#4f46e5 216deg, transparent 0deg);
+            }
+            70% {
+                background: conic-gradient(#4f46e5 252deg, transparent 0deg);
+            }
+            80% {
+                background: conic-gradient(#4f46e5 288deg, transparent 0deg);
+            }
+            90% {
+                background: conic-gradient(#4f46e5 324deg, transparent 0deg);
+            }
+          
+            100% {
+                background: conic-gradient(#4f46e5 360deg, transparent 0deg);
+            }
+        }
+
+        .animate-fill {
+            animation: fillAnimation 3s linear forwards;
+        }
+    </style>
 
 </head>
 <body class="bg-[#F8F9FA]">
@@ -86,8 +128,13 @@
         <section>
 
             <div class="border border-grey-800 shadow-lg  w-[90%] mx-auto bg-white mt-5 py-6 rounded-xl px-5">
-        
+                
+     
+              
                 <div class=" bg-gray-200 p-3 mt-3 rounded-3xl mb-3">
+
+
+                    
                     <div class="flex gap-4 justify-around items-center">
                         <p class="text-3xl text-gray-500"><i class="fa-solid fa-key"></i></p>
                       
@@ -98,10 +145,24 @@
                     
                 </div>
 
-
-                <div class="my-9 mx-auto w-[39%]  border rounded-full py-3 border-[rgb(136,12,167)]">
+                <!-- important design  -->
+                <!-- <div class="my-9 mx-auto w-[39%]  border rounded-full py-3 border-[rgb(136,12,167)]">
+                    
                     <p class="text-center text-[rgb(136,12,167)] w-[85%] mx-auto text-7xl p-7 border border-blue-800 rounded-full"><i class="fa-solid fa-paper-plane"></i></p>
+                </div> -->
+
+                <!-- outer circle  -->
+                <div id="outerCircle" class="my-10 mx-auto relative w-40 h-40 rounded-full border-2 border-gray-500 flex items-center justify-center overflow-hidden">
+                    <!-- Animated Fill Layer -->
+                    <div id="fillLayer" class="absolute inset-0 "></div>
+                    
+                    <!-- Inner Circle -->
+                    <div class="w-32 h-32 rounded-full border-2 border-blue-800 bg-white flex items-center justify-center relative z-10">
+                        <!-- Icon Inside Inner Circle -->
+                        <span class="text-7xl text-[rgb(136,12,167)]"><i class="fa-solid fa-paper-plane"></i></span>
+                    </div>
                 </div>
+                
 
                 <p class="w-[80%] mx-auto text-center font-bold">Tap and Hold the above button to Confirm Transaction</p>
                 
@@ -114,6 +175,8 @@
     <footer>
 
     </footer>
+
+    <script src="../js/confirm_send_money.js"></script>
 
 
     
